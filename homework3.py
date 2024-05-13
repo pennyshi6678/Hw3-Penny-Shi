@@ -158,7 +158,7 @@ controls size
 """
 # Step 1 
 df_capital= pd.read_csv('capitalstock.csv')
-df_capital_2018 = df_capital[df_capital['year']>=2018]
+df_capital_2018 = df_capital[df_capital['year'] ==2018]
 
 # Step 2
 ## Calculate the capital stock
@@ -183,7 +183,6 @@ ax.scatter(x, y, label='Data')  # Use scatter plot for data points
 ax.plot(x, gen_line(x), 'k--', label = 'line of best fit')  # Plot the line of best fit 
 
 # Add legend with label for scatter plot
-#ax.legend(loc="upper right", title='Legend')
 
 ax.set_xlabel('GDP in billions (in log)')
 ax.set_ylabel('Capital Stock in billions (in Log)')
@@ -202,9 +201,9 @@ model = ols("log_GDP~log_capital_stock", data = df_cleaned)
 result = model.fit()
 print(result.summary())
 
-## Analysis: for here we can see that the coefficient on log_capital stock is 0.9283, 
+## Analysis: for here we can see that the coefficient on log_capital stock is 0.9215, 
 ## meaning that for every 1% increase in capital stock, the GDP is expected to 
-## increase by 0.928%. There is a strong and positive relationship between capital 
+## increase by 0.9215%. There is a strong and positive relationship between capital 
 ## stock and GDP. The p-value is smaller than 0.05, giving us a statistically significant
 ## estimation. 
 
